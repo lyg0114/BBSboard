@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="org.zerock.mapper.BoardMapper">
+	
+		<insert id="create">
+		INSERT INTO BASICBOARD.TBL_BOARD(TITLE,CONTENT,WRITER)
+		     VALUES( #{title},#{content},#{writer} )
+		</insert>
+	
+		<select id="read" resultType="BoardVO">
+			SELECT BNO,TITLE,CONTENT,WRITER,REGDATE,VIEWCNT
+			FROM BASICBOARD.TBL_BOARD
+			WHERE BNO=#{bno}
+		</select>	
+			
+		<update id="update">
+			UPDATE BASICBOARD.TBL_BOARD SET TITLE=#{title},CONTENT=#{content}
+			WHERE BNO = #{bno}
+		</update>
+		
+		<delete id="delete">
+			DELETE FROM BASICBOARD.TBL_BOARD WHERE BNO=#{bno}			
+		</delete>
+		
+		<select id="listAll" resultType="BoardVO">
+			<![CDATA[
+				SELECT BNO,TITLE,CONTENT,WRITER,REGDATE,VIEWCNT
+				FROM BASICBOARD.TBL_BOARD
+				WHERE BNO > 0
+				ORDER BY BNO DESC, REGDATE DESC
+			]]>
+		</select>
+		
+		<select id="listPage" resultType="BoardVO">
+			<![CDATA[
+				SELECT BNO,TITLE,CONTENT,WRITER,REGDATE,VIEWCNT
+				FROM BASICBOARD.TBL_BOARD
+				WHERE BNO > 0
+				ORDER BY BNO DESC, REGDATE DESC
+				LIMIT #{page}, 10
+			]]>
+		</select>
+		
+		<select id="listCriteria" resultType="BoardVO">
+			<![CDATA[
+			
+				SELECT BNO,TITLE,CONTENT,WRITER,REGDATE,VIEWCNT
+				FROM BASICBOARD.TBL_BOARD
+				WHERE BNO > 0
+				ORDER BY BNO DESC, REGDATE DESC
+				LIMIT #{pageStart}, #{perPageNum}
+			]]>
+		</select>
+		
+		<select id="countPaging" resultType="int">
+			<![CDATA[
+			SELECT count(BNO) FROM BASICBOARD.TBL_BOARD WHERE BNO>0  
+			]]>
+		</select>
+		
+	</mapper>
+	
+	
+	
+	
+	
+	
+	
+	
+	

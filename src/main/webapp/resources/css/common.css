@@ -1,0 +1,45 @@
+
+a {
+	text-decoration: none;
+	color: black;
+}
+a:visited{
+	 color: black;
+}
+
+html{
+	height:100%;
+	
+}
+body{
+	height:100%;
+}
+#contents .contents-container{
+	position:absolute;
+	left:100px;
+}
+#contents .contents-container .table-container table{
+	 border-collapse: collapse;
+}
+
+
+#contents .contents-container .table-container table,th,td {
+  border-bottom: 1px solid black;
+}
+#contents .contents-container .table-container td {
+	padding:20px;
+}
+
+
+
+/*
+pagenumber 부분
+*/
+#contents .pagenumber .pagenumber-container ul li{
+	list-style:none;
+	display : inline;
+}
+
+#contents .pagenumber .pagenumber-container ul li:hover{
+	background-color : skyblue;
+}
