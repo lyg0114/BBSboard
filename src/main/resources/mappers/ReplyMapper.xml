@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="org.zerock.mapper.ReplyMapper">
+		<select id="list" resultType="ReplyVO">
+			SELECT * FROM BASICBOARD.TBL_REPLY
+			WHERE BNO = #{bno}
+			ORDER BY RNO DESC
+		</select>
+		
+		<select id="listPage" resultType="ReplyVO">
+			SELECT * FROM BASICBOARD.TBL_REPLY
+			WHERE BNO = #{bno}
+			ORDER BY RNO DESC
+			LIMIT #{cri.pageStart}, #{cri.perPageNum}
+		</select>
+		
+		<select id="count" resultType="Integer">
+			SELECT COUNT(BNO) FROM BASICBOARD.TBL_REPLY WHERE BNO = #{bno}
+		</select>
+			
+		<insert id="create">
+			INSERT INTO BASICBOARD.TBL_REPLY(BNO, REPLYTEXT, REPLYER)
+			VALUES (#{bno},#{replytext},#{replyer})
+		</insert>
+		
+		<update id="update">
+			UPDATE BASICBOARD.TBL_REPLY SET REPLYTEXT = #{replytext}, UPDATEDATE = now()
+			WHERE RNO = #{rno}
+		</update>
+		
+		<delete id="delete">
+			DELETE FROM BASICBOARD.TBL_REPLY WHERE RNO = #{rno}
+		</delete>
+		
+		
+		
+	</mapper>
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -10,7 +10,6 @@
 	<meta charset="UTF-8">
 <title>Home</title>
 <link href="/bbs/resources/css/common.css" rel="stylesheet">
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 	var result = '${msg}';
