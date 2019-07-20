@@ -11,7 +11,7 @@
 
 $(document).ready(function(){
 	$(".btn-primary").on("click",function(){
-		self.location="/bbs/board/listPage";
+		self.location="/bbs/sboard/listPage";
 	});
 		
 })
