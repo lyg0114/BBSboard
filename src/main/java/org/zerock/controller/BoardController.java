@@ -102,7 +102,7 @@ public class BoardController {
 		logger.info("##############################");
 		model.addAttribute(service.read(bno));
 		
-		return "/board/modify/modifyPage";
+		return "/sboard/modify/modifyPage";
 	}
 	@RequestMapping(value ="/modifyPage", method = RequestMethod.POST)
 	public String modifyPagePOST(BoardVO board,

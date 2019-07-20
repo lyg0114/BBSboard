@@ -73,7 +73,7 @@
 	
 						<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 							<%-- <li><a href="listPage?page=${pageMaker.endPage +1}">Next</a></li> old --%>
-							<li><a href="listPage${pageMaker.makeQuery(pageMaker.startPage +1)}">Next</a></li>
+							<li><a href="listPage${pageMaker.makeQuery(pageMaker.endPage +1)}">Next</a></li>
 						</c:if>
 					</ul>
 				</div>

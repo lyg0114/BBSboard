@@ -18,6 +18,11 @@ body{
 	position:absolute;
 	left:100px;
 }
+
+#contents .contents-container .search-option{
+	margin-bottom : 20px;
+}
+
 #contents .contents-container .table-container table{
 	 border-collapse: collapse;
 }

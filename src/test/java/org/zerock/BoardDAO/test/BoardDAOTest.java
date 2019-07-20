@@ -3,6 +3,7 @@ package org.zerock.BoardDAO.test;
 
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
+import org.zerock.domain.SearchCriteria;
 import org.zerock.persistence.BoardDAO;
 import java.sql.Connection;
 import java.util.List;
@@ -31,7 +32,6 @@ public class BoardDAOTest {
 	
 	//@Test
 	public void testCreate()throws Exception{
-		 //�� �ȵ�����.... root-context�� ����� �־����!!
 			BoardVO board = new BoardVO();
 			board.setTitle("���ο�� �Է�");
 			board.setContent("���ο� ���̴�!!!!!!!");
@@ -73,7 +73,7 @@ public class BoardDAOTest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void testListCriteria()throws Exception{
 		Criteria cri = new Criteria();
 		cri.setPage(2);
@@ -84,6 +84,24 @@ public class BoardDAOTest {
 		for(BoardVO boardVO:list) {
 			logger.info(boardVO.getBno() + ":"+ boardVO.getTitle());
 		}
+	}
+	
+	@Test
+	public void testDynamic()throws Exception{
+		SearchCriteria cri = new SearchCriteria();
+		cri.setPage(1);
+		cri.setKeyword("글");
+		cri.setSearchType("t");
+		
+		logger.info("######################################");
+		
+		List<BoardVO> list = dao.listSearch(cri);
+		for(BoardVO boardVO : list ) {
+			logger.info(boardVO.getBno()+" : "+boardVO.getTitle());
+		}
+		
+		logger.info("######################################");
+		logger.info("COUNT: "+dao.listSearchCount(cri));
 	}
 
 }
