@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="org.zerock.mapper.MessageMapper">
+		<insert id="create">
+			INSERT INTO BASICBOARD.TBL_MESSAGE (TARGETID,SENDER,MESSAGE)
+			VALUES(#{targetid},#{sender},#{message})
+		</insert>
+		
+		<select id="readMessage" resultType="MessageVO">
+			SELECT * FROM BASICBOARD.TBL_MESSAGE WHERE MNO=#{mid}
+		</select>
+		
+		<update id="updateState">
+			UPDATE BASICBOARD.TBL_MESSAGE SET OPENDATE = now() WHERE MID = #{mid}
+		</update>
+		
+	</mapper>
+	
+	
+	
+	
+	
+	
+	
+	
+	
