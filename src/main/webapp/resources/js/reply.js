@@ -1,4 +1,7 @@
-var bno = 22;
+
+
+var bno = $("#bno").val();
+console.log(bno);
 var replyPage = 1;
 	//getAllList();
 	getPageList(replyPage);
@@ -18,6 +21,7 @@ var replyPage = 1;
 	
 	//몇번째 page로 이동할 것인가
 	function getPageList(page){
+		console.log("getPageListTest");
 		$.getJSON("/bbs/replies/"+bno+"/"+page,function(data){
 			console.log(data.list.length);
 			
@@ -25,7 +29,9 @@ var replyPage = 1;
 			
 			$(data.list).each(function(){
 				str += "<li data-rno='"+this.rno+"' class='replyLi'>"
-					+this.rno+":"+this.replytext+"<button>MOD</button></li>";
+					+"<span id='Replywho'>"+this.replyer+"</span>"+" : "
+					+"<span id='Retext'>"+this.replytext+"</span>"
+					+"<button>MOD</button></li>";
 			});
 			$("#replies").html(str);
 			printPaging(data.pageMaker);
@@ -68,9 +74,13 @@ var replyPage = 1;
 		
 		var reply = $(this).parent();
 		var rno = reply.attr("data-rno");
-		var replytext = reply.text();
 		
-		$(".modal-title").html(rno);
+		var replytext = $("#Retext").html();
+		var Replywho = $("#Replywho").html();
+				
+		$("#modal-replyer").html(Replywho);
+		
+		$("#rno").val(rno);
 		$("#replytext").val(replytext);
 		$("#modDiv").show("slow");
 	});
@@ -108,8 +118,8 @@ var replyPage = 1;
 	
 	
 	$("#replyDelBtn").on("click", function() { //삭제
-		console.log("testestst");
-		var rno = $(".modal-title").html();
+		
+		var rno = $("#rno").val();
 		var replytext = $("#replytext").val();
 		console.log(rno);
 		console.log(replytext);
@@ -133,7 +143,7 @@ var replyPage = 1;
 	});
 	
 	$("#replyModBtn").on("click", function() { //수정 modify
-		var rno = $(".modal-title").html();
+		var rno = $("#rno").val();
 		var replytext = $("#replytext").val();
 
 		$.ajax({
@@ -151,7 +161,7 @@ var replyPage = 1;
 				if (result == 'success') {
 					alert("Modify Complete");
 					$("#modDiv").hide("slow");
-					getPageList(relyPage);
+					getPageList(replyPage);
 				}
 			}
 		});

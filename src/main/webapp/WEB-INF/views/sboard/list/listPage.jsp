@@ -83,17 +83,17 @@
 					<ul>
 						<c:if test="${pageMaker.prev}">
 							<%-- <li><a href="listPage?page=${pageMaker.startPage -1}">Previous</a> old--%>
-							<li><a href="listPage${pageMaker.makeSearch(pageMaker.startPage -1)}">PREV</a></li>
+							<a href="listPage${pageMaker.makeSearch(pageMaker.startPage -1)}"><li>PREV</li></a>
 						</c:if>
 						<c:forEach var="num" begin="${pageMaker.startPage}"
 							end="${pageMaker.endPage}">
 							<%-- <li><a href="listPage?page=${num}">${num}</a></li> old--%>
-							<li><a href="listPage${pageMaker.makeSearch(num)}">${num}</a></li>
+							<a href="listPage${pageMaker.makeSearch(num)}"><li>${num}</li></a>
 						</c:forEach>
 	
 						<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 							<%-- <li><a href="listPage?page=${pageMaker.endPage +1}">Next</a></li> old --%>
-							<li><a href="listPage${pageMaker.makeSearch(pageMaker.endPage +1)}">NEXT</a></li>
+							<a href="listPage${pageMaker.makeSearch(pageMaker.endPage +1)}"><li>NEXT</li></a>
 						</c:if>
 					</ul>
 				</div>

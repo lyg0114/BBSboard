@@ -1,4 +1,6 @@
-
+ul{
+	list-style:none;
+}
 a {
 	text-decoration: none;
 	color: black;
@@ -35,12 +37,27 @@ body{
 	padding:20px;
 }
 
-
-
 /*
 pagenumber 부분
 */
+#contents .pagenumber .pagenumber-container ul{
+
+}
+
 #contents .pagenumber .pagenumber-container ul li{
+box-sizing: border-box;
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 5px;
+  margin-left: 2px;
+  text-align: center;
+  text-decoration: none !important;
+  cursor: pointer;
+  *cursor: hand;
+  color: #333 !important;
+  border: 1px solid;
+  border-radius: 2px;
+  
 	list-style:none;
 	display : inline;
 }
@@ -48,3 +65,4 @@ pagenumber 부분
 #contents .pagenumber .pagenumber-container ul li:hover{
 	background-color : skyblue;
 }
+

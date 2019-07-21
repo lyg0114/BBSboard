@@ -123,7 +123,7 @@ public class SearchBoardController {
 		logger.info("##############################");
 		logger.info("REGISTER - GET");
 		logger.info("##############################");
-		return "/sboard/register";
+		return "/sboard/register/registerPage";
 	}
 	@RequestMapping(value="/register", method = RequestMethod.POST)
 	public String registerPOST(BoardVO board, RedirectAttributes rttr)throws Exception{
