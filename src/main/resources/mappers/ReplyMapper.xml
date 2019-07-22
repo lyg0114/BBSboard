@@ -20,6 +20,12 @@
 		<select id="count" resultType="Integer">
 			SELECT COUNT(BNO) FROM BASICBOARD.TBL_REPLY WHERE BNO = #{bno}
 		</select>
+		
+		<select id="getBno" resultType ="int">
+			SELECT BNO FROM BASICBOARD.TBL_REPLY WHERE RNO =#{rno}
+		</select>
+		
+		
 			
 		<insert id="create">
 			INSERT INTO BASICBOARD.TBL_REPLY(BNO, REPLYTEXT, REPLYER)

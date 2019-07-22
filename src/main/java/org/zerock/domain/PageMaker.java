@@ -24,11 +24,7 @@ public class PageMaker {
  //분석 필요	 요기서 오류남 startPage값이 음수가 나온다 !!! 
 	public void calcData() {
 		endPage = (int) (Math.ceil(cri.getPage()/(double)displayPageNum)*displayPageNum);
-		
 		startPage = (endPage - displayPageNum) +1;
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("startPage : "+startPage);
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		
 		int tempEndPage = (int)(Math.ceil(totalCount / (double)cri.getPerPageNum()));
 		

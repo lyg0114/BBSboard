@@ -6,8 +6,8 @@
 	<mapper namespace="org.zerock.mapper.pointMapper">
 	
 		<update id="updatePoint">
-			UPDATE TBL_MEMBER SET UPOINT = UPOINT + #{point}
-			WHERE USERID = #{uid}
+			UPDATE BASICBOARD.TBL_USER SET UPOINT = UPOINT + #{point}
+			WHERE UID = #{uid}
 		</update>
 		
 	</mapper>

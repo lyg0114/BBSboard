@@ -9,6 +9,16 @@ public class BoardVO {
 	private Date regdate;
 	private int viewcnt;
 	private String content;
+	private int replycnt;
+	
+	
+	
+	public int getReplycnt() {
+		return replycnt;
+	}
+	public void setReplycnt(int replycnt) {
+		this.replycnt = replycnt;
+	}
 	
 	public String getContent() {
 		return content;

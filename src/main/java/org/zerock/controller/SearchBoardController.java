@@ -29,11 +29,6 @@ public class SearchBoardController {
 	@RequestMapping(value="/listPage", method=RequestMethod.GET)
 	public String listPage(@ModelAttribute("cri")SearchCriteria cri, Model model)
 			throws Exception{
-		
-		logger.info("##############################");
-		logger.info("LISTPAGE - GET");
-		logger.info(cri.toString());
-		logger.info("##############################");
 
 		//model.addAttribute("list",service.listCriteria(cri));
 		model.addAttribute("list",service.listSearchCriteria(cri));
@@ -54,9 +49,7 @@ public class SearchBoardController {
 	public String read(@RequestParam("bno")int bno,
 			@ModelAttribute("cri")SearchCriteria cri,
 			Model model)throws Exception{
-		logger.info("##############################");
-		logger.info("READPAGE - GET");
-		logger.info("##############################");
+		
 		model.addAttribute(service.read(bno));
 		
 		return "/sboard/read/readPage";
@@ -68,9 +61,7 @@ public class SearchBoardController {
 	public String modifyPageGET(@RequestParam("bno")int bno,
 			@ModelAttribute("cri")SearchCriteria cri,
 			Model model)throws Exception{
-		logger.info("##############################");
-		logger.info("MODIFYPAGE - GET");
-		logger.info("##############################");
+		
 		model.addAttribute(service.read(bno));
 		
 		return "/sboard/modify/modifyPage";
@@ -80,9 +71,6 @@ public class SearchBoardController {
 			SearchCriteria cri,
 			RedirectAttributes rttr)throws Exception{
 
-		logger.info("##############################");
-		logger.info("MODIFYPAGE - POST");
-		logger.info("##############################");
 		
 		service.modify(board);
 		
@@ -101,9 +89,8 @@ public class SearchBoardController {
 	@RequestMapping(value ="/removeAction", method = RequestMethod.POST)
 	public String removePage(@RequestParam("bno")int bno,
 			SearchCriteria cri,RedirectAttributes rttr)throws Exception{
-		logger.info("##############################");
-		logger.info("REMOVE - POST");
-		logger.info("##############################");
+		
+		
 		service.remove(bno);
 		rttr.addAttribute("page",cri.getPage());
 		rttr.addAttribute("perPageNum",cri.getPerPageNum());
@@ -120,17 +107,12 @@ public class SearchBoardController {
 	/*REGISTER 관련~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 	@RequestMapping(value="/register", method = RequestMethod.GET)
 	public String registerGET(BoardVO board, Model model)throws Exception{
-		logger.info("##############################");
-		logger.info("REGISTER - GET");
-		logger.info("##############################");
+		
 		return "/sboard/register/registerPage";
 	}
 	@RequestMapping(value="/register", method = RequestMethod.POST)
 	public String registerPOST(BoardVO board, RedirectAttributes rttr)throws Exception{
-		logger.info("##############################");
-		logger.info("REGISTER - POST");
-		logger.info("##############################");
-		logger.info(board.toString());
+		
 		service.regist(board);
 		rttr.addFlashAttribute("msg","success");
 		return "redirect:/sboard/listPage";
