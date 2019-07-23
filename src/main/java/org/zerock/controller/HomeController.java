@@ -17,4 +17,20 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	@RequestMapping(value ="/doA",method = RequestMethod.GET )
+	public String doA(Locale locale , Model model) {
+		System.out.println("doA_____________________________________");
+		return "home";
+	}
+	
+	@RequestMapping(value ="/doB",method = RequestMethod.GET )
+	public String doB(Locale locale , Model model) {
+		
+		System.out.println("doB_____________________________________");
+		model.addAttribute("result", "DOB RESULT");
+		
+		
+		return "home";
+		
+	}
 }

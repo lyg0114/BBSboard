@@ -21,6 +21,17 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<beans:bean id="SampleInterceptor" class="org.zerock.interceptor.SampleInterceptor">
+	</beans:bean>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/doA" />
+			<mapping path="/doB" />
+			<beans:ref bean="SampleInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 	<context:component-scan base-package="org.zerock.controller" />
 	
 	
