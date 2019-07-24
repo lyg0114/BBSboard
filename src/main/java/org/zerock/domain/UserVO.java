@@ -2,27 +2,29 @@ package org.zerock.domain;
 
 public class UserVO {
 
-	private String userid;
-	private String userpw;
-	private String username;
+	private String uid;
+	private String upw;
+	private String uname;
 	private int upoint;
-	public String getUserid() {
-		return userid;
+	
+	
+	public String getUid() {
+		return uid;
 	}
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
-	public String getUserpw() {
-		return userpw;
+	public String getUpw() {
+		return upw;
 	}
-	public void setUserpw(String userpw) {
-		this.userpw = userpw;
+	public void setUpw(String upw) {
+		this.upw = upw;
 	}
-	public String getUsername() {
-		return username;
+	public String getUname() {
+		return uname;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUname(String uname) {
+		this.uname = uname;
 	}
 	public int getUpoint() {
 		return upoint;
@@ -30,6 +32,8 @@ public class UserVO {
 	public void setUpoint(int upoint) {
 		this.upoint = upoint;
 	}
+	
+	
 	
 	
 }
