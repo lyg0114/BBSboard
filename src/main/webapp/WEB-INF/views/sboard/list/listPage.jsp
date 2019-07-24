@@ -29,12 +29,19 @@
 							+$("select option:selected").val()
 							+"&keyword="+encodeURIComponent($("#keywordInput").val());
 		});
-	})
+		
+		$("#logout").on("click",function(){
+			self.location = "/bbs/user/logout";
+		});
+		
+		
+	});
 </script>
 </head>
 <body>
 	<header id="header">
 		<h1>listAll</h1>
+		<button id="logout">LOGOUT</button>
 	</header>
 	<section id="contents">
 		<article>

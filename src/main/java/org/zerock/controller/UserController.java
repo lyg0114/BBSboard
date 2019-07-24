@@ -45,7 +45,7 @@ public class UserController {
 		model.addAttribute("userVO", vo);
 
 	}
-/*
+
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request, HttpServletResponse response, HttpSession session)
 			throws Exception {
@@ -54,19 +54,22 @@ public class UserController {
 		if (obj != null) {
 			UserVO vo = (UserVO) obj;
 
-			session.removeAttribute("lobin");
+			session.removeAttribute("login");
 			session.invalidate();
 
 			Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
 
 			if (loginCookie != null) {
+				System.out.println("test1#####################################");
 				loginCookie.setPath("/");
 				loginCookie.setMaxAge(0);
 				response.addCookie(loginCookie);
 			}
+			System.out.println("test2#####################################");
 		}
-		return "user/logout";
+		System.out.println("test3#####################################");
+		return "user/login";
 	}
-	*/
+	
 
 }

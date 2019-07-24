@@ -2,7 +2,6 @@
 
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 <html>
 <head>
 <title>Home</title>
@@ -32,8 +31,8 @@ $(document).ready(function(){
 			<td><textarea class="form-control" name='content'></textarea></td>
 		</tr>
 		<tr>
-			<td><label>Writer</label></td>
-			<td><input class="form-control" name='writer'></td>
+			<td><label>Writer12</label></td>
+			<td><input class="form-control" name='writer' value="${login.uid}"></td>
 		</tr>
 		
 		</table>

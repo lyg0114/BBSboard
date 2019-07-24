@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 <html>
 <head>
 <title>Home</title>
@@ -64,9 +63,11 @@
 				</tr>
 			</table>
 			 
-			<button type="submit" class="btn btn-warning">MODIFY</button>
-			<button type="submit" class="btn btn-danger">REMOVE</button>
-			<button type="submit" class="btn btn-primary">LIST</button>
+			 <c:if test="${login.uid == boardVO.writer }">
+				<button type="submit" class="btn btn-warning">MODIFY</button>
+				<button type="submit" class="btn btn-danger">REMOVE</button>
+			</c:if>
+				<button type="submit" class="btn btn-primary">LIST</button>
 				
 		</div>
 		

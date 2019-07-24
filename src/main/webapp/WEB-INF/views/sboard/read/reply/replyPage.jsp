@@ -1,8 +1,9 @@
 
-
+	<input type='hidden' id='loginID' value="${login.uid}">
+	
 	<div>
 		<div>
-			REPLYER <input type='text' name='replyer' id='newReplyWriter'>
+			REPLYER <input type='text' name='replyer' id='newReplyWriter' readonly="readonly" value="${login.uid}">
 		</div>
 		<div>
 			REPLY TEXT <input type='text' name='replytext' id='newReplyText'>
@@ -10,8 +11,8 @@
 		<button id="replyAddBtn">ADD REPLY</button>
 	</div>
 	
-	<ul id="replies"></ul>
-	<ul class='pagination'></ul>
+	<ul id="replies"></ul> <!-- 댓글 나오는 부분 -->
+	<ul class='pagination'></ul> <!--댓글 페이징처리  -->
 
 	<div id='modDiv' style="display: none;">
 		<input type='hidden' id='rno' />
@@ -19,7 +20,7 @@
 		<div>
 			<input type='text' id='replytext' />
 		</div>
-		<div>
+		<div id="button-group">
 			<button id="replyModBtn">Modify</button>
 			<button id="replyDelBtn">DELETE</button>
 			<button id="closeBtn">Close</button>

@@ -3,35 +3,30 @@
 var bno = $("#bno").val();
 console.log(bno);
 var replyPage = 1;
-	//getAllList();
-	getPageList(replyPage);
-	
-	function getAllList() { //전체 리스트 출력
-		$.getJSON("/bbs/replies/all/" + bno, function(data) {
+var $loginID =$("#loginID").val();
 
-			var str = "";
-			$(data).each(function() {
-				str += "<li data-rno='"+this.rno+"' class='replyLi'>"
-						+ this.rno + " : " + this.replytext
-						+ "<button>MOD</button></li>";
-					});
-			$("#replies").html(str);
-		});
-	}
+getPageList(replyPage,$loginID);
 	
-	//몇번째 page로 이동할 것인가
-	function getPageList(page){
+	//페이징 처리된 댓글 리스트
+	function getPageList(page,$loginID){
 		console.log("getPageListTest");
 		$.getJSON("/bbs/replies/"+bno+"/"+page,function(data){
-			console.log(data.list.length);
 			
 			var str="";
 			
 			$(data.list).each(function(){
-				str += "<li data-rno='"+this.rno+"' class='replyLi'>"
+				if($loginID == this.replyer){
+					str += "<li data-rno='"+this.rno+"' class='replyLi'>"
 					+"<span id='Replywho'>"+this.replyer+"</span>"+" : "
 					+"<span id='Retext'>"+this.replytext+"</span>"
 					+"<button>MOD</button></li>";
+				}else{
+					str += "<li data-rno='"+this.rno+"' class='replyLi'>"
+					+"<span id='Replywho'>"+this.replyer+"</span>"+" : "
+					+"<span id='Retext'>"+this.replytext+"</span>"
+				}
+				
+				
 			});
 			$("#replies").html(str);
 			printPaging(data.pageMaker);
@@ -63,7 +58,7 @@ var replyPage = 1;
 		event.preventDefault();
 		relyPage = $(this).attr("href");
 		console.log("relyPage : "+relyPage);
-		getPageList(relyPage);
+		getPageList(relyPage,$loginID);
 		
 	});	
 	/*댓글 페이징 처리###############################################################*/
@@ -110,7 +105,7 @@ var replyPage = 1;
 			success : function(result) {
 				if (result == 'success') {
 					alert("Add Complete");
-					getPageList(replyPage);
+					getPageList(replyPage,$loginID);
 				}
 			}
 		});
@@ -136,7 +131,7 @@ var replyPage = 1;
 				if (result == 'success') {
 					alert("Remove Complete");
 					$("#modDiv").hide("slow");
-					getPageList(replyPage);
+					getPageList(replyPage,$loginID);
 				}
 			}
 		});
@@ -161,7 +156,7 @@ var replyPage = 1;
 				if (result == 'success') {
 					alert("Modify Complete");
 					$("#modDiv").hide("slow");
-					getPageList(replyPage);
+					getPageList(replyPage,$loginID);
 				}
 			}
 		});
