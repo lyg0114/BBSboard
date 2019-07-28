@@ -1,48 +1,102 @@
-
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
-<head>
-<title>Home</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-$(document).ready(function(){
-	$(".btn-primary").on("click",function(){
-		self.location="/bbs/sboard/listPage";
-	});
-		
-})
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>RegisterPage_theme</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="/bbs/resources/sb-admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="/bbs/resources/sb-admin/css/sb-admin-2.min.css" rel="stylesheet">
+  
+  <script>
+
+	$(document).ready(function(){
+		$("#snedData").on("click",function(){
+			self.location="/bbs/sboard/listPage";
+		});
+			
+	})
 	
 </script>
+
+<style>
+
+#exampleCONTENT{
+	height: 350px;
+    border-radius: 0;
+}
+
+</style>
 </head>
-<body>
-	<h1>Register</h1>
 
-	<form role="form" method="post"><!-- actionì ì¤ì íì§ ìì¼ë©´ íì¬ ê²½ë¡ë¥¼ ê·¸ëë¡ ì¬ì©!  -->
-		<table>
-		<tr>
-			<td><label>Title</label></td>
-			<td><input class="form-control" name='title'></td>
-		</tr>
-		<tr>
-			<td><label>Text area</label></td>
-			<td><textarea class="form-control" name='content'></textarea></td>
-		</tr>
-		<tr>
-			<td><label>Writer12</label></td>
-			<td><input class="form-control" name='writer' value="${login.uid}"></td>
-		</tr>
-		
-		</table>
-		 
-	<button type="submit"  class="btn btn-default">Submit Button</button>	
-	</form>
-	
-		<button type="reset"   class="btn btn-reset">Reset Button</button>
-		<button  class="btn btn-primary">listAll</button>
+<body class="bg-gradient-primary">
 
+  <div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+              </div>
+             
+	              <form class="user" role="form" method="post">
+	                <div class="form-group row">
+	                  <div class="col-sm-6 mb-3 mb-sm-0">
+	                    <input type="text" name='title' class="form-control form-control-user" id="exampleTITLE" placeholder="TITLE">
+	                  </div>
+	                  <div class="col-sm-6">
+	                    <input type="text" name='content' value="${login.uid}" class="form-control form-control-user" id="exampleID" placeholder="ID">
+	                  </div>
+	                </div>
+	                <div class="form-group">
+	                  <input type="textarea" name="writer" class="form-control form-control-user" id="exampleCONTENT" placeholder="CONTENT">
+	                </div>
+	                	                
+	                
+	                <button id="snedData" type="submit"  class="btn btn-primary btn-user btn-block">REGISTER</button>
+	                <hr>
+	                
+	          
+	              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="/bbs/resources/sb-admin/vendor/jquery/jquery.min.js"></script>
+  <script src="/bbs/resources/sb-admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="/bbs/resources/sb-admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/bbs/resources/sb-admin/js/sb-admin-2.min.js"></script>
 
 </body>
+
 </html>
