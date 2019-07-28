@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>LOGIN</title>
+  <title>LOGIN2</title>
 
   <!-- Custom fonts for this template-->
   <link href="/bbs/resources/sb-admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
