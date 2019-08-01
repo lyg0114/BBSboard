@@ -59,8 +59,23 @@
 <body>
 
 	<header id="header">
-		<h1>WELECOME ${login.uid}</h1>
-		<button id="logout">LOGOUT</button>
+		<div class="header-container">
+			<h1 class="welecome"><a href="/bbs/sboard/listPage">WELECOME ${login.uid}</a></h1>
+				<div class="button-container">
+            		<button id="newBtn" class="btn btn-primary btn-icon-split btn-sm">
+	                    <span class="icon text-white-50">
+	                      <i class="fas fa-check"></i>
+	                    </span>
+                    	<span class="text">NEWREGISTER</span>
+                  	</button>
+                  	<button class="btn btn-warning btn-icon-split btn-sm">
+	                    <span class="icon text-white-50">
+	                      <i class="fas fa-check"></i>
+	                    </span>
+                    <span class="text">LOGOUT</span>
+                  	</button>
+				</div>
+		</div>
 	</header>
 	
 	<hr>
@@ -71,8 +86,8 @@
 	 	<div class="contents-container">
 			<div class="search-option">
 				<div class="input-group-append">
-					<select name='searchType' class="btn btn-primary dropdown-toggle">
-						<option value=""<c:out value="${pageMaker.cri.searchType == null?'selected':''}"/>>--</option>
+					<select name='searchType' class="btn btn-light btn-icon-split">
+						<option value="t"<c:out value="${pageMaker.cri.searchType == null?'selected':''}"/>>--</option>
 						<option value="t"<c:out value="${pageMaker.cri.searchType eq 't'?'selected':''}"/>>제목</option>				
 						<option value="c"<c:out value="${pageMaker.cri.searchType eq 'c'?'selected':''}"/>>내용</option>			
 						<option value="w"<c:out value="${pageMaker.cri.searchType eq 'w'?'selected':''}"/>>작성자</option>									
@@ -85,11 +100,8 @@
 					<input class="form-control bg-light border-0 small" type="text" name="keyword" id="keywordInput" value='${cri.keyword}'/>
 	                <button id="searchBtn" class="btn btn-primary" type="button">
 	                  <i class="fas fa-search fa-sm"></i>
-	                	</button>
-					
-              </div>
-				<!-- <button id="searchBtn">Search</button> -->
-				<button id="newBtn" class="btn btn-NewRegister">NEWREGISTER</button>				
+	                </button>
+				</div>						
 			</div>
 			
 						
@@ -103,7 +115,6 @@
 									<th scope="col" data-tablesaw-priority="2">WRITER</th>
 									<th scope="col" data-tablesaw-priority="1">REGDATE</th>
 									<th scope="col" data-tablesaw-priority="4">VIEWCNT</th>
-									<!-- <th>VIEWCNT</th> -->
 								</tr>
 							</thead>
 							<tbody>
