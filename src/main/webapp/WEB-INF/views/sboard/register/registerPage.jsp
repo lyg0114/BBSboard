@@ -5,98 +5,86 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>RegisterPage_theme</title>
+  <title>Register</title>
 
-  <!-- Custom fonts for this template-->
-  <link href="/bbs/resources/sb-admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="/bbs/resources/sb-admin/css/sb-admin-2.min.css" rel="stylesheet">
-  
-  <script>
-
-	$(document).ready(function(){
-		$("#snedData").on("click",function(){
-			self.location="/bbs/sboard/listPage";
-		});
-			
-	})
+	 <!-- include libraries(jQuery, bootstrap) -->
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
 	
-</script>
+	<!-- include summernote css/js -->
+	<link href="/bbs/resources/summernote-master/dist/summernote-bs4.css" rel="stylesheet">
+	<script type="text/javascript" src="/bbs/resources/summernote-master/dist/summernote-bs4.js"></script>
+	
+   <script type="text/javascript">
+ $(function() {
+      $('.summernote').summernote({
+        height: 400
+      });
 
-<style>
-
-#exampleCONTENT{
-	height: 350px;
-    border-radius: 0;
-}
-
-</style>
+      var formObj = $("form[role='form']");
+      $("#snedData").on("click",function(){
+    	  	formObj.attr("method","post");
+			formObj.attr("action","/bbs/sboard/register");
+			formObj.submit();
+		});
+      
+      $("#goListPage").on("click",function(){
+    	  self.location="/bbs/sboard/listPage";
+		});
+      
+    });
+  </script>
+  
+  
 </head>
 
-<body class="bg-gradient-primary">
+<body>
+<header id="header">
+	<div class="container">
+		<h1>REGISTER</h1>
+	</div>
+</header>
 
-  <div class="container">
 
-    <div class="card o-hidden border-0 shadow-lg my-5">
-      <div class="card-body p-0">
-        <!-- Nested Row within Card Body -->
-        <div class="row">
-          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-          <div class="col-lg-7">
-            <div class="p-5">
-              <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
-              </div>
-             
-	              <form class="user" role="form" method="post">
-	                <div class="form-group row">
-	                  <div class="col-sm-6 mb-3 mb-sm-0">
-	                    <input type="text" name='title' class="form-control form-control-user" id="exampleTITLE" placeholder="TITLE">
-	                  </div>
-	                  <div class="col-sm-6">
-	                    <input type="text" name='content' value="${login.uid}" class="form-control form-control-user" id="exampleID" placeholder="ID">
-	                  </div>
-	                </div>
-	                <div class="form-group">
-	                  <input type="textarea" name="writer" class="form-control form-control-user" id="exampleCONTENT" placeholder="CONTENT">
-	                </div>
-	                	                
-	                
-	                <button id="snedData" type="submit"  class="btn btn-primary btn-user btn-block">REGISTER</button>
-	                <hr>
-	                
-	          
-	              </form>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<section id="contents">
+	<article>
+		<div class="container">
+			  <div class="card">
+				    <div class="card-body">
+				      <form role="form">
+					        <div class="form-group">
+					          <input name="writer" type="text" class="form-control" id="input" value="${login.uid}">
+					        </div>
+					        
+					        <div class="form-group">
+					          <input name="title" type="text" class="form-control" id="input" placeholder="TITLE">
+					        </div>
+					        
+					        <div class="form-group">
+					          <label for="contents">Contents</label>
+					          <textarea name="content" class="summernote" id="contents" title="Contents"></textarea>
+					        </div>
+				      </form>
+				      <button id="snedData" type="submit"  class="btn btn-primary"/>REGISTER</button>
+				      <button id="goListPage" class="btn btn-primary">goLIST</button>
+				      		
+				    </div>
+			  </div>
+		</div>
+	</article>
 
-  </div>
+</section>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="/bbs/resources/sb-admin/vendor/jquery/jquery.min.js"></script>
-  <script src="/bbs/resources/sb-admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<footer id="footer"> </footer>
 
-  <!-- Core plugin JavaScript-->
-  <script src="/bbs/resources/sb-admin/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="/bbs/resources/sb-admin/js/sb-admin-2.min.js"></script>
-
+<link href="/bbs/resources/css/registerPage.css" rel="stylesheet">
 </body>
-
 </html>

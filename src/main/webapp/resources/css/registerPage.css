@@ -1,0 +1,62 @@
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:visited {
+	color: black;
+}
+
+a:hover {
+	color: black;
+	text-decoration: none;
+}
+
+html {
+	/* background-color: #4e73df; */
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+@media ( min-width : 40em) {
+	#contents .container .card .card-body .form-group input{
+		 border : none;
+		-webkit-box-shadow: none;
+		border-bottom : 3px solid #4e73df;
+	}
+	 .note-editor.note-frame {
+	  border : none;
+		-webkit-box-shadow: none;
+	}
+	
+	#contents .container .card .card-body button
+	{
+		display : inline-block;
+		margin-top : 10px;
+	}	 
+
+}
+
+@media ( max-width : 39.9375em) {
+	#contents .contents-container .table-container table tr {
+		border-bottom: 1px solid #4e73df;
+	}
+	#contents .contents-container .table-container table tr td {
+		padding: 0px;
+	}
+	#contents .contents-container .search-option .input-group-append select
+		{
+		padding: 0px;
+		width: 130px;
+	}
+	#contents .pagenumber .pagenumber-container ul {
+		padding: 3px;
+	}
+}
