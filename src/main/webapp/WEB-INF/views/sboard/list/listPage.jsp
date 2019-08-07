@@ -68,7 +68,7 @@
 	                    </span>
                     	<span class="text">NEWREGISTER</span>
                   	</button>
-                  	<button class="btn btn-warning btn-icon-split btn-sm">
+                  	<button id="logout" class="btn btn-warning btn-icon-split btn-sm">
 	                    <span class="icon text-white-50">
 	                      <i class="fas fa-check"></i>
 	                    </span>

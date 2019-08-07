@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,12 +23,14 @@
 	<!-- include summernote css/js -->
 	<link href="/bbs/resources/summernote-master/dist/summernote-bs4.css" rel="stylesheet">
 	<script type="text/javascript" src="/bbs/resources/summernote-master/dist/summernote-bs4.js"></script>
-	
+	<script src="/bbs/resources/summernote-master/lang/summernote-ko-KR.js"></script>
    <script type="text/javascript">
  $(function() {
       $('.summernote').summernote({
-        height: 400
-      });
+        height: 400,
+        placeholder: 'Contents . . . ',
+        lang: 'ko-KR' 
+      })
 
       var formObj = $("form[role='form']");
       $("#snedData").on("click",function(){
@@ -41,6 +44,9 @@
 		});
       
     });
+ 	
+ 	
+ 
   </script>
   
   
@@ -70,7 +76,7 @@
 					        
 					        <div class="form-group">
 					          <label for="contents">Contents</label>
-					          <textarea name="content" class="summernote" id="contents" title="Contents"></textarea>
+					          <textarea name="content" class="summernote" id="summernote" title="Contents"></textarea>
 					        </div>
 				      </form>
 				      <button id="snedData" type="submit"  class="btn btn-primary"/>REGISTER</button>

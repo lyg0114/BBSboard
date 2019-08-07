@@ -12,18 +12,20 @@ getPageList(replyPage,$loginID);
 		console.log("getPageListTest");
 		$.getJSON("/bbs/replies/"+bno+"/"+page,function(data){
 			
-			var str="";
+			var str="<table>";
 			
 			$(data.list).each(function(){
 				if($loginID == this.replyer){
-					str += "<li data-rno='"+this.rno+"' class='replyLi'>"
-					+"<span id='Replywho'>"+this.replyer+"</span>"+" : "
-					+"<span id='Retext'>"+this.replytext+"</span>"
-					+"<button>MOD</button></li>";
+					str += "<tr data-rno='"+this.rno+"' class='replyLi'>" 
+					+"<td><span id='Replywho'>"+this.replyer+"</span>"+" : </td>"
+					+"<td><span id='Retext'>"+this.replytext+"</span></td>"
+					+"<td><button class='btn btn-success btn-circle btn-sm'>MOD</button></td>"
+					+"</tr>";
 				}else{
-					str += "<li data-rno='"+this.rno+"' class='replyLi'>"
-					+"<span id='Replywho'>"+this.replyer+"</span>"+" : "
-					+"<span id='Retext'>"+this.replytext+"</span>"
+					str += "<tr data-rno='"+this.rno+"' class='replyLi'>" 
+					+"<td><span id='Replywho'>"+this.replyer+"</span>"+" : </td>"
+					+"<td><span id='Retext'>"+this.replytext+"</span></td>"
+					+"</tr>";
 				}
 				
 				
@@ -45,7 +47,6 @@ getPageList(replyPage,$loginID);
 		for(var i=pageMaker.startPage, len=pageMaker.endPage; i<=len; i++){
 			var strClass ="class='paginate_button'"+pageMaker.cri.page == i?' active':'';
 			str += "<li class='paginate_button'><a href='"+i+"'>"+i+"</a></li>";
-			//str += "<li "+strClass+"><a href='"+i+"'>"+i+"</a></li>";
 		}
 		
 		if(pageMaker.next){
@@ -106,6 +107,7 @@ getPageList(replyPage,$loginID);
 				if (result == 'success') {
 					alert("Add Complete");
 					getPageList(replyPage,$loginID);
+					$("#newReplyText").val("");
 				}
 			}
 		});
