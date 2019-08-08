@@ -24,32 +24,83 @@
 	<link href="/bbs/resources/summernote-master/dist/summernote-bs4.css" rel="stylesheet">
 	<script type="text/javascript" src="/bbs/resources/summernote-master/dist/summernote-bs4.js"></script>
 	<script src="/bbs/resources/summernote-master/lang/summernote-ko-KR.js"></script>
-   <script type="text/javascript">
- $(function() {
-      $('.summernote').summernote({
-        height: 400,
-        placeholder: 'Contents . . . ',
-        lang: 'ko-KR' 
-      })
-
-      var formObj = $("form[role='form']");
-      $("#snedData").on("click",function(){
-    	  	formObj.attr("method","post");
-			formObj.attr("action","/bbs/sboard/register");
-			formObj.submit();
-		});
-      
-      $("#goListPage").on("click",function(){
-    	  self.location="/bbs/sboard/listPage";
-		});
-      
-    });
- 	
- 	
- 
+  	<script src="/bbs/resources/js/register.js" ></script>
+  	
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js" ></script>
+  <script id="template" type="text/x-handlebars-template">
+  	<li>
+		<span class="mailbox-attachement-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+		<div class="mailbox-attachment-info">
+			<a href="{{getLink}}" class="mailbox-attachement-name">{{fileName}}</a>
+			<a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
+		</div>	
+	</li>
   </script>
-  
-  
+	<script type="text/javascript">
+	 $(function() {
+	      $('.summernote').summernote({
+	        height: 200,
+	        placeholder: 'Contents . . . ',
+	        lang: 'ko-KR' 
+	      })
+	
+	      var $formObj = $("form[role='form']");
+	      
+	      $("#snedData").on("click",function(){
+	    	  event.preventDefault();
+	    	  var str="";
+	    	  
+	    	  $(".uploadedList .delbtn").each(function(index){
+	    		  str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href")+"'>";
+	    	  });
+	    	  	$formObj.append(str);
+	    	  	$formObj.attr("method","post");
+				$formObj.attr("action","/bbs/sboard/register");
+				
+				$formObj.get(0).submit();
+			});
+	      
+	      $("#goListPage").on("click",function(){
+	    	  self.location="/bbs/sboard/listPage";
+			});
+	      
+	      var template = Handlebars.compile($("#template").html());
+	      $(".fileDrop").on("dragenter dragover", function(event){ //파일을 드래그 해도 아무일도 안생김
+				event.preventDefault();
+			});
+	      
+	      $(".fileDrop").on("drop", function(event){  //파일을 드래그 해도 아무일도 안생김
+				event.preventDefault();
+			
+				 var files = event.originalEvent.dataTransfer.files;
+				var file = files[0];
+				//console.log(file);
+				
+				var formData = new FormData();
+				formData.append("file",file);
+				
+				$.ajax({
+					url:'/bbs/uploadAjax',
+					data:formData,
+					dataTyep:'text',
+					processData:false,
+					contentType:false,
+					type:'POST',
+					success: function(data){
+						
+						var fileInfo = getFileInfo(data);
+						var html = template(fileInfo);
+						
+						$(".uploadedList").append(html)
+					}
+					
+				});
+				 
+			});
+	      
+	      
+	    });
+	  </script>
 </head>
 
 <body>
@@ -78,6 +129,21 @@
 					          <label for="contents">Contents</label>
 					          <textarea name="content" class="summernote" id="summernote" title="Contents"></textarea>
 					        </div>
+					        
+					        <div class="form-group">
+					        	<label for="exampleInputEmail1">FILE DROP HERE</label>
+					        	<div class="fileDrop"></div>
+					        </div>
+					        
+					        <div class="box-footer">
+					        	<div>	
+					        		<hr>
+					        	</div>
+					        	
+					        	<ul class="mailbox-attachments clearfix uploadedList">
+					        	</ul>
+					        </div>
+					        
 				      </form>
 				      <button id="snedData" type="submit"  class="btn btn-primary"/>REGISTER</button>
 				      <button id="goListPage" class="btn btn-primary">goLIST</button>

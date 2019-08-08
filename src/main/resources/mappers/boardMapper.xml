@@ -9,12 +9,12 @@
 		INSERT INTO BASICBOARD.TBL_BOARD(TITLE,CONTENT,WRITER)
 		     VALUES( #{title},#{content},#{writer} )
 		</insert>
+		
+		<insert id="addAttach">
+			INSERT INTO BASICBOARD.TBL_ATTACH(FULLNAME,BNO) VALUES (#{fullName}, (SELECT MAX(LAST_INSERT_ID(BNO)) FROM basicboard.tbl_board)) 
+				
+		</insert>
 	
-		<select id="read" resultType="BoardVO">
-			SELECT BNO,TITLE,CONTENT,WRITER,REGDATE,VIEWCNT
-			FROM BASICBOARD.TBL_BOARD
-			WHERE BNO=#{bno}
-		</select>	
 			
 		<update id="update">
 			UPDATE BASICBOARD.TBL_BOARD SET TITLE=#{title},CONTENT=#{content}
@@ -33,6 +33,12 @@
 		<delete id="delete">
 			DELETE FROM BASICBOARD.TBL_BOARD WHERE BNO=#{bno}			
 		</delete>
+		
+		<select id="read" resultType="BoardVO">
+			SELECT BNO,TITLE,CONTENT,WRITER,REGDATE,VIEWCNT
+			FROM BASICBOARD.TBL_BOARD
+			WHERE BNO=#{bno}
+		</select>	
 		
 		<select id="listAll" resultType="BoardVO">
 			<![CDATA[

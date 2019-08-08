@@ -13,18 +13,11 @@
 	<title>Home</title>
 
 	<link rel="stylesheet" href="/bbs/resources/tablesaw-master/dist/tablesaw.css">
-	  <!-- Custom styles for this template-->
   	<link href="/bbs/resources/sb-admin/css/sb-admin-2.min.css" rel="stylesheet">
   	<link href="/bbs/resources/sb-admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	<link href="/bbs/resources/css/common.css" rel="stylesheet">
-	
-	<style>
-	.democolwidth {
-		width: 150px;
-	}
-	</style>
-	 
+
 
 	<script src="/bbs/resources/tablesaw-master/dist/tablesaw.js"></script>
 	<script src="/bbs/resources/tablesaw-master/dist/tablesaw-init.js"></script>
@@ -103,7 +96,6 @@
 	                </button>
 				</div>						
 			</div>
-			
 						
 			<div class="table-container"  style="background-color:white;">
 				<div class="docs-main">
