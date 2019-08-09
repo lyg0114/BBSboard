@@ -29,11 +29,10 @@
 			<button id="closeBtn">Close</button>
 		</div>
 	</div>
-<!-- 
+ 
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"
 	integrity="sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw="
-	crossorigin="anonymous"></script> -->
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	crossorigin="anonymous"></script>
 	<script src="/bbs/resources/js/reply.js"></script>
 	<link href="/bbs/resources/css/reply.css" rel="stylesheet">
 	
