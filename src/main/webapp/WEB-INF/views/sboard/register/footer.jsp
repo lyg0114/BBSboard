@@ -1,0 +1,1 @@
+<link href="/bbs/resources/css/registerPage.css" rel="stylesheet">

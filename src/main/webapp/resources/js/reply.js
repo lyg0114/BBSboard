@@ -115,6 +115,7 @@ getPageList(replyPage,$loginID);
 	
 	
 	$("#replyDelBtn").on("click", function() { //삭제
+		alert("test");
 		
 		var rno = $("#rno").val();
 		var replytext = $("#replytext").val();
@@ -122,7 +123,7 @@ getPageList(replyPage,$loginID);
 		console.log(replytext);
 
 		$.ajax({
-			type : 'delete',
+			type : 'DELETE',
 			url : '/bbs/replies/'+rno,
 			headers : {
 				"Content-Type" : "application/json",
