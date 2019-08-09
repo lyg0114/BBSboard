@@ -1,7 +1,6 @@
 
-
 var bno = $("#bno").val();
-console.log(bno);
+
 var replyPage = 1;
 var $loginID =$("#loginID").val();
 
@@ -9,7 +8,7 @@ getPageList(replyPage,$loginID);
 	
 	//페이징 처리된 댓글 리스트
 	function getPageList(page,$loginID){
-		console.log("getPageListTest");
+		
 		$.getJSON("/bbs/replies/"+bno+"/"+page,function(data){
 			
 			var str="<table>";
@@ -58,7 +57,7 @@ getPageList(replyPage,$loginID);
 	$(".pagination").on("click", "li a", function(event){
 		event.preventDefault();
 		relyPage = $(this).attr("href");
-		console.log("relyPage : "+relyPage);
+		
 		getPageList(relyPage,$loginID);
 		
 	});	
@@ -68,7 +67,7 @@ getPageList(replyPage,$loginID);
 
 	$("#replies").on("click",".replyLi button", function(){ //모달창 등장
 		
-		var reply = $(this).parent();
+		var reply = $(this).parents(".replyLi");
 		var rno = reply.attr("data-rno");
 		
 		var replytext = $("#Retext").html();
@@ -78,12 +77,13 @@ getPageList(replyPage,$loginID);
 		
 		$("#rno").val(rno);
 		$("#replytext").val(replytext);
-		$("#modDiv").show("slow");
+		$("#modDiv").show();
 	});
 	
 	$("#closeBtn").on("click",function(){
-		$("#modDiv").hide("slow");
+		$("#modDiv").hide();
 	});
+	
 	
 	$("#replyAddBtn").on("click", function() { //추가
 		var replyer = $("#newReplyWriter").val();
@@ -115,12 +115,9 @@ getPageList(replyPage,$loginID);
 	
 	
 	$("#replyDelBtn").on("click", function() { //삭제
-		alert("test");
 		
 		var rno = $("#rno").val();
 		var replytext = $("#replytext").val();
-		console.log(rno);
-		console.log(replytext);
 
 		$.ajax({
 			type : 'DELETE',
