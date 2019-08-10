@@ -42,7 +42,7 @@ body {
 	#contents .DetailContents .container table .content{
 		display: block;
 	    width: 100%;
-	    height: 350px;
+	    height: 250px;
 	    padding: 6px 12px;
 	    font-size: 14px;
 	    line-height: 1.42857143;
@@ -61,6 +61,31 @@ body {
 			margin-top: 30px;
 			margin-bottom : 30px;
 	} 
+	
+	.popup {
+		position : absolute;
+	}
+	.back {
+		background-color:gray;
+		opacity:0.5;
+		width : 100%;
+		height: 300%;
+		overflow:hidden;
+		z-index:1101;
+	}
+	
+	.front{
+		z-index:1110;
+		opacity:1;
+		boarder:1px;
+		margin:auto;
+	}
+	.show{
+		position:relative;
+		max-width:1200px;
+		max-height:800px;
+		overflow:auto;
+	}
 	
 
 }

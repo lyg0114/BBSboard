@@ -33,8 +33,9 @@
 							<div class="content">${boardVO.content}</div>
 							</td>
 						</tr>
-	
-					</table> 
+					</table>
+					
+					<ul class="mailbox-attachments clearfix uploadedList"></ul> 
 					 
 					 <div class="button-set">
 					 	<c:if test="${login.uid == boardVO.writer }">
@@ -57,6 +58,7 @@
 	
 	<footer id="footer"> </footer>
 	
+	<%@include file="./footer.jsp" %>
 </body>
 </html>
 

@@ -34,6 +34,12 @@
 			DELETE FROM BASICBOARD.TBL_BOARD WHERE BNO=#{bno}			
 		</delete>
 		
+		
+		<select id="getAttach" resultType="string">
+			SELECT FULLNAME FROM BASICBOARD.TBL_ATTACH WHERE BNO = #{bno} ORDER BY REGDATE
+		</select>
+		
+		
 		<select id="read" resultType="BoardVO">
 			SELECT BNO,TITLE,CONTENT,WRITER,REGDATE,VIEWCNT
 			FROM BASICBOARD.TBL_BOARD
