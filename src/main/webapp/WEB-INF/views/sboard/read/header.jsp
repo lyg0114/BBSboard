@@ -64,6 +64,22 @@
 		});
 		
 		$(".btn-danger").on("click",function(){
+			
+			var arr=[];
+			$(".uploadedList li").each(function(index){
+				arr.push($(this).attr("data-src"))
+			});
+			
+			if(arr.length > 0){
+				$.post(
+						"/bbs/deleteAllFiles",
+						{files:arr},
+						function(){
+					
+				});
+					
+			}
+			
 			formObj.attr("method","post");
 			formObj.attr("action","/bbs/sboard/removeAction");
 			formObj.submit();
