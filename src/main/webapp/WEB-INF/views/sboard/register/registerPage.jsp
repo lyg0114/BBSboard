@@ -53,7 +53,7 @@
 					        
 				      </form>
 				      <button id="snedData" type="submit"  class="btn btn-primary"/>REGISTER</button>
-				      <button id="goListPage" class="btn btn-primary">goLIST</button>
+				      <button id="goListPage" class="btn btn-primary">LIST</button>
 				      		
 				    </div>
 			  </div>

@@ -7,7 +7,7 @@
 
 	<header id="header">
 		<div class="container">
-			<h1>ReadPage</h1>
+			<h1>READPAGE</h1>
 		<div class="container">
 	</header>
 	<section id="contents">
@@ -20,32 +20,30 @@
 		</form>
 		<article class="DetailContents">
 			<div class="container">
-					 <table>
-						<tr>
-							<td><div class="writer">${boardVO.writer}</div></td>
-						</tr>
-						<tr>
-							<td><div class="title">${boardVO.title}</div></td>
-						</tr>
-						<tr>
-							<td>
-							<label class="content-title">Contents</label>
-							<div class="content">${boardVO.content}</div>
-							</td>
-						</tr>
-					</table>
-					
-					<ul class="mailbox-attachments clearfix uploadedList"></ul> 
-					 
-					 <div class="button-set">
-					 	<c:if test="${login.uid == boardVO.writer }">
-							<button id="btn-modify" type="submit" class="btn btn-warning">MODIFY</button>
-							<button id="btn-remove" type="submit" class="btn btn-danger">REMOVE</button>
-						</c:if>
-							<button id="btn-List" type="submit" class="btn btn-primary">LIST</button>
-					 </div>
-					 
-						
+				 <table>
+					<tr>
+						<td><div class="writer">${boardVO.writer}</div></td>
+					</tr>
+					<tr>
+						<td><div class="title">${boardVO.title}</div></td>
+					</tr>
+					<tr>
+						<td>
+						<label class="content-title">Contents</label>
+						<div class="content">${boardVO.content}</div>
+						</td>
+					</tr>
+				</table>
+				
+				<ul class="mailbox-attachments clearfix uploadedList"></ul> 
+				 
+				 <div class="button-set">
+				 	<c:if test="${login.uid == boardVO.writer }">
+						<button id="btn-modify" type="submit" class="btn btn-warning">MODIFY</button>
+						<button id="btn-remove" type="submit" class="btn btn-danger">REMOVE</button>
+					</c:if>
+						<button id="btn-List" type="submit" class="btn btn-primary">LIST</button>
+				 </div>
 			</div>
 		</article>
 		

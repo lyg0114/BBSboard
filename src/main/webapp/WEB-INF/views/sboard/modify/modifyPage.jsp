@@ -13,18 +13,19 @@
 	
 	<header id="header">
 		<div class="container">
-			<h1>Modify</h1>
+			<h1>MODIFY</h1>
 		</div>
 	</header>
 	<section id="contents">
 		<article>
 			<div class="container">
 				<form role="form" action="post" >
-					<input type='hidden' name="bno" value="${boardVO.bno}">
-					<input type='hidden' name="page" value="${cri.page}">
-					<input type='hidden' name="perPageNum" value="${cri.perPageNum}">
-					<input type='hidden' name="searchType" value="${cri.searchType}">
-					<input type='hidden' name="keyword" value="${cri.keyword}">
+					<input id="boardBno" type='hidden' name="bno" value="${boardVO.bno}">
+					<input id="boardContent" type='hidden' name="bno" value="${boardVO.content}">
+					<input id="page" type='hidden' name="page" value="${cri.page}">
+					<input id="perPageNum" type='hidden' name="perPageNum" value="${cri.perPageNum}">
+					<input id="searchType" type='hidden' name="searchType" value="${cri.searchType}">
+					<input id="keyword" type='hidden' name="keyword" value="${cri.keyword}">
 					<table>
 						<tr>
 							<td><input readonly="readonly" class="form-control" name='writer' value="${boardVO.writer}" /></td>
@@ -54,7 +55,7 @@
 			<div class="container">
 				<div class="button-container">
 					<button id="btn-modify" type="submit" class="btn btn-modify">SAVE</button>
-					<button id="btn-primary" type="submit" class="btn btn-primary">goLIST</button>
+					<button id="btn-primary" type="submit" class="btn btn-primary">LIST</button>
 				</div>
 			</div>
 			
