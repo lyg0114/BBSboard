@@ -15,17 +15,6 @@
 	<script src="/bbs/resources/summernote-master/dist/summernote-bs4.js" type="text/javascript" ></script>
 	<script src="/bbs/resources/js/file.js" ></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js" ></script>
-	<script id="templateAttach" type="text/x-handlebars-template">
-  	<li>
-	 <div class="img-container">
-		<span><img src="{{imgsrc}}" alt="Attachment"></span>
-		<div>
-			<a href="{{getLink}}">{{fileName}}</a>
-			<a href="{{fullName}}" class="delbtn"></a>
-		</div>
-	</div>	
-	</li>
-  </script>
   <script id="templateNewAttach" type="text/x-handlebars-template">
   	<li>
 	 <div class="img-container">
@@ -43,17 +32,7 @@ $(function() {
 	var $formObj = $("form[role='form']");
 	var bno = ${boardVO.bno};
 	
-	var templateAttach = Handlebars.compile($("#templateAttach").html());
 	var templateNewAttach = Handlebars.compile($("#templateNewAttach").html());
-	$.getJSON("/bbs/sboard/getAttach/"+bno,function(list){
-		$(list).each(function(){
-			var fileInfo = getFileInfo(this);
-			var html = templateAttach(fileInfo);
-			$(".uploadedList").append(html);
-		});
-		
-	});
-	
 	 
     $(".fileDrop").on("dragenter dragover", function(event){ 
 			event.preventDefault();

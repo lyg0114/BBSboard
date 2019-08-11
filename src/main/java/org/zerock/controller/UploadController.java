@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.zerock.util.MediaUtils;
-import org.zerock.util.UploadFileUtils;
+import org.zerock.util.UploadFileUtilsForBBS;
 
 
 @Controller
@@ -133,7 +133,7 @@ public class UploadController {
 		logger.info("contentType : " + file.getContentType());
 		return new ResponseEntity<String>(
 				
-	UploadFileUtils.uploadFile(uploadPath,file.getOriginalFilename(),file.getBytes()),HttpStatus.CREATED); 
+	UploadFileUtilsForBBS.uploadFile(uploadPath,file.getOriginalFilename(),file.getBytes()),HttpStatus.CREATED); 
 					
 	}
 	

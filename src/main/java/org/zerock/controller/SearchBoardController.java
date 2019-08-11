@@ -2,6 +2,7 @@ package org.zerock.controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -28,6 +29,9 @@ public class SearchBoardController {
 	
 	@Inject
 	private BoardService service;
+	
+	@Resource(name="uploadPath")
+	private String uploadPath;
 	
 	
 	@RequestMapping(value="/listPage", method=RequestMethod.GET)
@@ -76,7 +80,7 @@ public class SearchBoardController {
 			RedirectAttributes rttr)throws Exception{
 
 		
-		service.modify(board);
+		service.modify(board,uploadPath);
 		
 		rttr.addAttribute("page",cri.getPage());
 		rttr.addAttribute("perPageNum",cri.getPerPageNum());

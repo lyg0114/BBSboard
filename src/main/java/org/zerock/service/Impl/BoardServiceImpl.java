@@ -11,7 +11,8 @@ import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.SearchCriteria;
 import org.zerock.persistence.BoardDAO;
-import  org.zerock.service.BoardService;
+import org.zerock.service.BoardService;
+import org.zerock.util.UploadFileUtilsForBBS;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -42,19 +43,27 @@ public class BoardServiceImpl implements BoardService {
 
 	@Transactional
 	@Override
-	public void modify(BoardVO board) throws Exception {
+	public void modify(BoardVO board,String uploadPath) throws Exception {
+		UploadFileUtilsForBBS util = new UploadFileUtilsForBBS();
+		
 		dao.update(board);
 		Integer bno = board.getBno();
-		dao.deleteAttach(bno);
-		String[] files = board.getFiles();
+		List<String> fileNameList = dao.getAttach(bno);
 		
-		if(files == null) {
-			return;
+		if(util.deleteAllFiles(fileNameList,uploadPath)) {
+			dao.deleteAttach(bno);
+			String[] files = board.getFiles();
+			
+			if(files == null) {
+				return;
+			}
+			
+			for(String fileName : files){
+				dao.replaceAttach(fileName, bno);
+			}
 		}
 		
-		for(String fileName : files){
-			dao.replaceAttach(fileName, bno);
-		}
+		
 		
 	}
 

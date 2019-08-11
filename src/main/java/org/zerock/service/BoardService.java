@@ -12,7 +12,7 @@ public interface BoardService {
 	
 	public BoardVO read(Integer bno)throws Exception;
 	
-	public void modify(BoardVO board)throws Exception;
+	public void modify(BoardVO board, String uploadPath)throws Exception;
 	
 	public void remove(Integer bno)throws Exception;
 	
