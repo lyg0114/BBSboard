@@ -37,12 +37,24 @@
 						</tr>
 					</table>
 				</form>
+				
+				<div>
+		        	<label for="exampleInputEmail1">FILE DROP HERE</label>
+		        	<div class="fileDrop"></div>
+		        </div>
+		        <div class="box-footer">
+		        	<div>	
+		        		<hr>
+		        	</div>
+				<ul class="uploadedList"></ul>
 					
 			</div>
+			
+			
 			<div class="container">
 				<div class="button-container">
-					<button type="submit" class="btn btn-modify">SAVE</button>
-					<button type="submit" class="btn btn-primary">CANCEL</button>
+					<button id="btn-modify" type="submit" class="btn btn-modify">SAVE</button>
+					<button id="btn-primary" type="submit" class="btn btn-primary">goLIST</button>
 				</div>
 			</div>
 			

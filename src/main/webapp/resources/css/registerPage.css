@@ -37,6 +37,14 @@ body {
 		border : 1px dotted gray;
 		background-color : lightslategrey;
 	}
+	#contents .container .card .card-body .box-footer ul
+	{
+		display : flex;
+	}
+	
+	#contents .container .card .card-body .box-footer ul li{
+		margin-left : 20px;
+	} 
 	
 	 .note-editor.note-frame {
 	  border : none;

@@ -130,7 +130,7 @@ getPageList(replyPage,$loginID);
 			success : function(result) {
 				if (result == 'success') {
 					alert("Remove Complete");
-					$("#modDiv").hide("slow");
+					$("#modDiv").hide();
 					getPageList(replyPage,$loginID);
 				}
 			}
@@ -155,7 +155,7 @@ getPageList(replyPage,$loginID);
 			success : function(result) {
 				if (result == 'success') {
 					alert("Modify Complete");
-					$("#modDiv").hide("slow");
+					$("#modDiv").hide();
 					getPageList(replyPage,$loginID);
 				}
 			}

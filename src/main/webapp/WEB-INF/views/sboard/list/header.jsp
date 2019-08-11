@@ -20,7 +20,7 @@
 			alert("Complete.");
 		}
 	
-		$(document).ready(function() {
+		$(function() {
 			$("#newBtn").on("click", function() {
 				self.location = "/bbs/sboard/register";
 			});

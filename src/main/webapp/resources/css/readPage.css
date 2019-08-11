@@ -62,6 +62,13 @@ body {
 			margin-bottom : 30px;
 	} 
 	
+	#contents .DetailContents .container ul {
+		display : flex;
+	}
+	
+	#contents .DetailContents .container ul li{
+		margin-left : 20px;
+	}
 	.popup {
 		position : absolute;
 	}

@@ -29,11 +29,7 @@
 			<button id="closeBtn">Close</button>
 		</div>
 	</div>
- 
-	<script src="https://code.jquery.com/jquery-2.1.4.min.js"
-	integrity="sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw="
-	crossorigin="anonymous"></script>
-	<script src="/bbs/resources/js/reply.js"></script>
+ 	
+ 	<script src="/bbs/resources/js/read/reply.js"></script>
 	<link href="/bbs/resources/css/reply.css" rel="stylesheet">
-	
 		

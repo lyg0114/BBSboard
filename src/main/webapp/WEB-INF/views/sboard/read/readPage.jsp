@@ -39,10 +39,10 @@
 					 
 					 <div class="button-set">
 					 	<c:if test="${login.uid == boardVO.writer }">
-							<button type="submit" class="btn btn-warning">MODIFY</button>
-							<button type="submit" class="btn btn-danger">REMOVE</button>
+							<button id="btn-modify" type="submit" class="btn btn-warning">MODIFY</button>
+							<button id="btn-remove" type="submit" class="btn btn-danger">REMOVE</button>
 						</c:if>
-							<button type="submit" class="btn btn-primary">LIST</button>
+							<button id="btn-List" type="submit" class="btn btn-primary">LIST</button>
 					 </div>
 					 
 						
