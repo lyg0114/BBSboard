@@ -13,8 +13,8 @@
 	</div>
 	
 	
-	<ul id="replies"></ul> <!-- 댓글 나오는 부분 -->
-	<ul class='pagination'></ul> <!--댓글 페이징처리  -->
+	<ul id="replies"></ul> 
+	<ul class='pagination'></ul>
 
 	<div id='modDiv' style="display: none;">
 		<input type='hidden' id='rno' />
