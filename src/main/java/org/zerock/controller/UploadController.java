@@ -66,7 +66,7 @@ public class UploadController {
 	
 	@ResponseBody
 	@RequestMapping(value="/deleteFile",method=RequestMethod.POST)
-	public ResponseEntity<String> deleteFile(String fName)throws Exception{
+	public ResponseEntity<String> deleteFile(@RequestParam("fName")String fName)throws Exception{
 		
 		String fileName = URLDecoder.decode(fName, "UTF-8") ; //한글 인코딩
 		logger.info("delete file: "+ fName);

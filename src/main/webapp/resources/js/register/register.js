@@ -27,11 +27,11 @@ $(function() {
 			});
 	      
 	      
-	      $(".fileDrop").on("dragenter dragover", function(event){ //파일을 드래그 해도 아무일도 안생김
+	      $(".fileDrop").on("dragenter dragover", function(event){ 
 				event.preventDefault();
 			});
 	      
-	      $(".fileDrop").on("drop", function(event){  //파일을 드래그 해도 아무일도 안생김
+	      $(".fileDrop").on("drop", function(event){ 
 				event.preventDefault();
 			
 				var files = event.originalEvent.dataTransfer.files;
@@ -65,7 +65,7 @@ $(function() {
 				$.ajax({
 					url : "/bbs/deleteFile",
 					type : "post",
-					data : {fName:$(this).attr("data-src")},
+					data : {fName : $(this).attr("data-src")},
 					dataType : "text",
 					success : function(result){
 						if(result == 'deleted'){
