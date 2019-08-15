@@ -1,5 +1,7 @@
 package org.zerock.controller;
 
+import java.util.Date;
+
 import javax.inject.Inject;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +45,13 @@ public class UserController {
 		System.out.println("%%%%%%%%%%%%%%%%%%%%%%%");
 
 		model.addAttribute("userVO", vo);
+		
+		if(dto.isUseCookie()){
+			int amount = 60* 60 * 24 * 7;
+			Date sessionLimit = new Date(System.currentTimeMillis()+(1000 * amount));
+			
+			service.keepLogin(vo.getUid(), session.getId(), sessionLimit);
+		}
 
 	}
 

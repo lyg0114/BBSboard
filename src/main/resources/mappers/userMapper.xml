@@ -9,6 +9,14 @@
 			SELECT UID,UPW,UNAME FROM BASICBOARD.TBL_USER WHERE UID= #{uid} and UPW=#{upw}
 		</select>
 		
+		<select id="checkUserWithSessionKey" resultType="UserVO">
+			SELECT * FROM BASICBOARD.TBL_USER WHERE SESSIONKEY = #{value}
+		</select>
+		
+		<update id="keepLogin">
+			UPDATE BASICBOARD.TBL_USER SET SESSIONKEY = #{sessionId}, SESSIONLIMIT = #{next} WHERE UID =#{uid}
+		</update>
+		
 		
 	</mapper>
 	

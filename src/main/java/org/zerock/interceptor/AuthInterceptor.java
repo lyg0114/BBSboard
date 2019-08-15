@@ -1,5 +1,7 @@
 package org.zerock.interceptor;
 
+import javax.inject.Inject;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -7,9 +9,17 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.util.WebUtils;
+import org.zerock.domain.UserVO;
+import org.zerock.service.UserService;
 
 public class AuthInterceptor extends HandlerInterceptorAdapter{
 	private static final Logger logger = LoggerFactory.getLogger(AuthInterceptor.class);
+	
+	@Inject
+	private UserService Service;
+	
+	
 	
 	
 	private void saveDest(HttpServletRequest req) {
@@ -37,9 +47,21 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 			throws Exception{
 			
 		HttpSession session  = request.getSession();
+		
 		if(session.getAttribute("login")==null){
 			logger.info("current user is not logined");
 			saveDest(request);
+			
+			Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+			if(loginCookie != null) {
+				UserVO userVO = Service.checkLoginBefore(loginCookie.getValue());
+				if(userVO != null) {
+					session.setAttribute("login", userVO);
+					return true;
+				}
+				
+			}
+			
 			response.sendRedirect("/bbs/user/login");
 			return false;
 		}

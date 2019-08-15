@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <input type="checkbox" name="useCookie" class="custom-control-input" id="customCheck">
                         <label class="custom-control-label" for="customCheck">REMEMBER ME</label>
                       </div>
                     </div>
