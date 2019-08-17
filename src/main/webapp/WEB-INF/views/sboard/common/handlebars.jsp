@@ -13,4 +13,10 @@
 	</div>	
 	</li>
   </script>
+  
+  <!--  
+  	imgsrc : img파일 경로 
+  	getLink : 클릭시 다운로드
+  	fullName : UUID를 통해 만들어진 해시값을 포함한 이름
+  -->
 

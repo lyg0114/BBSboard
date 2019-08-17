@@ -1,5 +1,7 @@
 package org.zerock.domain;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Date;
 
 public class BoardVO {

@@ -1,7 +1,5 @@
-var result = '${msg}';
-		if (result === 'success') {
-			alert("Complete.");
-		}
+
+	
 	
 		$(document).ready(function() {
 			$("#newBtn").on("click", function() {

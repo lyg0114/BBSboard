@@ -87,7 +87,7 @@ public class UploadController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/displayFile")
+	@RequestMapping(value="/displayFile" , produces = "text/plain;charset=UTF-8")
 	public ResponseEntity<byte[]> displayFile(String fName)throws Exception{
 		InputStream in = null;
 		ResponseEntity<byte[]> entity = null;

@@ -1,5 +1,6 @@
 package org.zerock.controller;
 
+import java.net.URLDecoder;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -21,6 +22,7 @@ import org.zerock.domain.Criteria;
 import org.zerock.domain.PageMaker;
 import org.zerock.domain.SearchCriteria;
 import org.zerock.service.BoardService;
+import org.zerock.util.utf8DecodingUtils;
 
 @Controller
 @RequestMapping("/sboard/*")
@@ -30,6 +32,9 @@ public class SearchBoardController {
 	@Inject
 	private BoardService service;
 	
+	@Inject
+	private utf8DecodingUtils decoding;
+	
 	@Resource(name="uploadPath")
 	private String uploadPath;
 	
@@ -38,12 +43,9 @@ public class SearchBoardController {
 	public String listPage(@ModelAttribute("cri")SearchCriteria cri, Model model)
 			throws Exception{
 
-		//model.addAttribute("list",service.listCriteria(cri));
 		model.addAttribute("list",service.listSearchCriteria(cri));
 		PageMaker pagemaker = new PageMaker();
 		pagemaker.setCri(cri);
-		
-		//pagemaker.setTotalCount(service.listcountCriteria(cri));
 		pagemaker.setTotalCount(service.listSearchCount(cri));
 		
 		model.addAttribute("pageMaker",pagemaker);
@@ -79,8 +81,7 @@ public class SearchBoardController {
 			SearchCriteria cri,
 			RedirectAttributes rttr)throws Exception{
 
-		
-		service.modify(board,uploadPath);
+		service.modify(decoding.DecodingFileName(board),uploadPath);
 		
 		rttr.addAttribute("page",cri.getPage());
 		rttr.addAttribute("perPageNum",cri.getPerPageNum());
@@ -121,7 +122,7 @@ public class SearchBoardController {
 	@RequestMapping(value="/register", method = RequestMethod.POST)
 	public String registerPOST(BoardVO board, RedirectAttributes rttr)throws Exception{
 		
-		service.regist(board);
+		service.regist(decoding.DecodingFileName(board));
 		rttr.addFlashAttribute("msg","success");
 		return "redirect:/sboard/listPage";
 	}
